@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 15:54:34 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/12 18:52:06 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/13 13:11:58 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,40 @@ Contact::~Contact()
 
 void Contact::set_values()
 {
+	std::getline(std::cin, first_name);
 	std::cout << "first name: ";
-	if (!(std::cin >> first_name))
-	{
-		std::cin.clear();
-    	std::cout << std::endl;
-	}
+	if (!(std::getline(std::cin, first_name)))
+		exit(0);
 	std::cout << "last name: ";
-	if (!(std::cin >> last_name))
-		return ;
+	if (!(std::getline(std::cin, last_name)))
+		exit(0);
 	std::cout << "nickname: ";	
-	if (std::cin >> nickname && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, nickname)))
+		exit(0);
 	std::cout << "login: ";
-	if (std::cin >> login && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, login)))
+		exit(0);
 	std::cout << "postal address: ";
-	if (std::cin >> postal_addr && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, postal_addr)))
+		exit(0);
 	std::cout << "email address: ";
-	if (std::cin >> email && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, email)))
+		exit(0);
 	std::cout << "phone number: ";
-	if (std::cin >> phone_num && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, phone_num)))
+		exit(0);
 	std::cout << "birthday date: ";
-	if (std::cin >> birthday && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, birthday)))
+		exit(0);
 	std::cout << "favorite meal: ";
-	if (std::cin >> fav_meal && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, fav_meal)))
+		exit(0);
 	std::cout << "underwear color: ";
-	if (std::cin >> underwear_c && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, underwear_c)))
+		exit(0);
 	std::cout << "darkest secret: ";
-	if (std::cin >> darkest_secret && std::cin.eof())
-		return ;
+	if (!(std::getline(std::cin, darkest_secret)))
+		exit(0);
 }
 
 void Contact::display_info()

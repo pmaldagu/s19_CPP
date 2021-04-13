@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 13:24:27 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/12 17:16:26 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/13 13:47:29 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Phonebook::~Phonebook()
 void Phonebook::add()
 {
 	entry++;
-	if (entry >= 8)
+	if (entry > 7)
 		std::cout << "Phonebook is full" << std::endl;
 	else
 		contacts[entry].set_values();
@@ -45,9 +45,9 @@ void Phonebook::search()
 	while (1)
 	{
 		std::cout << "Index: ";
-		std::getline(std::cin, input);
+		std::cin >> input;
  		if(!std::cin)
-         	return ;
+         	exit(0);
 		i = 0;
 		while(input[i])
 		{
@@ -55,9 +55,9 @@ void Phonebook::search()
 				break;
 			i++;
 		}
-		if (!input[i])
+		if (input[i])
 			index = std::stoi(input);
-		if (index > 0 && index < 9)
+		if (index > 0 && index < 9 && index <= entry + 1)
 				break;
 		std::cout << "Wrong input, try again\n";
 	}
@@ -74,7 +74,7 @@ void Phonebook::print()
 	std::cout << std::setw(10) << "first name" << "|";
 	std::cout << std::setw(10) << "last name" << "|";
 	std::cout << std::setw(10) << "nickname" << std::endl;
-	while (i <= entry)
+	while (i < 8 && i <= entry)
 	{
 		std::cout << std::setw(10) << i + 1 << "|";
 		tmp = contacts[i].get_first_name();
