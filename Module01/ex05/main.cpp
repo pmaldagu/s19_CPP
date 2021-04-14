@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 13:48:57 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/14 14:34:20 by pmaldagu         ###   ########.fr       */
+/*   Created: 2021/04/14 14:50:17 by pmaldagu          #+#    #+#             */
+/*   Updated: 2021/04/14 16:18:23 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Human.hpp"
 
 int main()
 {
-	std::string brain = "HI THIS IS BRAIN";
-    std::string *pointer = &brain;
-    std::string &reference = brain;
+	Human bob;
 
-    std::cout << "Pointer : " << *pointer << std::endl;
-    std::cout << "Reference : " << reference << std::endl;
-    std::cout << "Reference adress : " << &reference << std::endl;
-    std::cout << "Adress : " << &brain << std::endl;
-    std::cout << "Pointer address : " << pointer << std::endl;
+	std::cout << bob.identify() << std::endl;
+	std::cout << bob.getBrain().identify() << std::endl;
 	return (0);
 }
