@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 15:23:50 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/14 12:11:47 by pmaldagu         ###   ########.fr       */
+/*   Created: 2021/04/13 15:22:31 by pmaldagu          #+#    #+#             */
+/*   Updated: 2021/04/14 13:40:54 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ZombieEvent.hpp"
+# include "ZombieHorde.hpp"
 
-ZombieEvent::ZombieEvent()
+ZombieHorde::ZombieHorde(int N)
 {
+	horde = new Zombie[N];
+	std::string	names[7];
+
+	members = N;
+	randomName();
+	std::cout << "The horde is coming" << std::endl;
 }
 
-ZombieEvent::~ZombieEvent()
+ZombieHorde::~ZombieHorde()
 {
+	delete [] horde;
+	std::cout << "The horde is gone" << std::endl;
 }
 
-Zombie* ZombieEvent::newZombie(std::string name)
+void ZombieHorde::randomName()
 {
-	Zombie *newChump = new Zombie();
-
-	newChump->setName(name);
-	return (newChump);
-}
-
-void ZombieEvent::setZombieType(Zombie* chump, std::string type)
-{
-	if (!chump)
-		return ;
-	chump->setType(type);
-}
-
-void ZombieEvent::randomChump(std::string type)
-{
-	Zombie randomChump;
 	std::string names[7];
 	int index;
+	int i;
 
 	names[0] = "Doc";
 	names[1] = "Sneezy";
@@ -48,9 +41,23 @@ void ZombieEvent::randomChump(std::string type)
 	names[4] = "Happy";
 	names[5] = "Bashful";
 	names[6] = "Dopey";
+	i = 0;
+	while (i < members)
+	{
+		index = std::rand() % 7;
+		horde[i].setName(names[index]);
+		i++;
+	}
+}
 
-	index = std::rand() % 7;
-	randomChump.setName(names[index]);
-	randomChump.setType(type);
-	randomChump.announce();
+void ZombieHorde::announce()
+{
+	int i;
+
+	i = 0;
+	while (i < members)
+	{
+		horde[i].announce();
+		i++;
+	}
 }
