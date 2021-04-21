@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/20 17:00:11 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/21 12:55:51 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 FragTrap::FragTrap( void ) : _hit( 100 ), _maxHit( 100 ), _en( 100 ), _maxEn( 100 ),
 	_lvl( 1 ), _melDmg( 30 ), _rangDmg( 20 ), _armorDmg( 5 )
 {
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "FR4G-TP Constructor called" << std::endl;
 	srand(time(NULL));
 
 	return;
@@ -24,7 +24,7 @@ FragTrap::FragTrap( void ) : _hit( 100 ), _maxHit( 100 ), _en( 100 ), _maxEn( 10
 FragTrap::FragTrap( std::string name ) : _name( name ), _hit( 100 ), _maxHit( 100 ),
    	_en( 100 ), _maxEn( 100 ), _lvl( 1 ), _melDmg( 30 ), _rangDmg( 20 ), _armorDmg( 5 )
 {
-	std::cout << "String Constructor called" << std::endl;
+	std::cout << "FR4G-TP with a name Constructor called" << std::endl;
 	srand(time(NULL));
 
 	return;
@@ -32,7 +32,7 @@ FragTrap::FragTrap( std::string name ) : _name( name ), _hit( 100 ), _maxHit( 10
 
 FragTrap::FragTrap( FragTrap const & src )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "FR4G-TP Copy constructor called" << std::endl;
 	*this = src;
 
 	return;
@@ -40,14 +40,14 @@ FragTrap::FragTrap( FragTrap const & src )
 
 FragTrap::~FragTrap( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "FR4G-TP Destructor called" << std::endl;
 	
 	return;
 }
 
 FragTrap & FragTrap::operator=( FragTrap const & src)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "FR4G-TP Assignation operator called" << std::endl;
 	this->_name = src._name;
 	this->_hit = src._hit;
 	this->_maxHit = src._maxHit;

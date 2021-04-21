@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:04:10 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/20 17:10:18 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/21 13:31:25 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class ScavTrap
 	public:
 		ScavTrap( void );
 		ScavTrap( std::string name);
-		ScavTrap( FragTrap const & src);
+		ScavTrap( ScavTrap const & src);
 		~ScavTrap( void );
 		
-		FragTrap & operator=( FragTrap const & rhs );
+		ScavTrap & operator=( ScavTrap const & rhs );
 
 		std::string getName( void ) const;
 		void rangedAttack( std::string const & target );
@@ -47,6 +47,6 @@ class ScavTrap
 
 };
 
-std::ostream & operator<<( std::ostream & o, FragTrap const & rhs );
+std::ostream & operator<<( std::ostream & o, ScavTrap const & rhs );
 
 #endif
