@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:00:25 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/23 17:24:13 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/26 13:39:35 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 AWeapon::AWeapon( void )
 {
-	std::cout << "Default Constructor called" << std::endl;
+	//std::cout << "Default Constructor called" << std::endl;
 
 	return;
 }
 
-AWeapon::AWEapon( std::string const & name, int apcost, int damage)
+AWeapon::AWeapon( std::string const & name, int apcost, int damage)
 {
 	this->_name = name;
 	this->_apcost = apcost;
 	this->_damage = damage;
-	std::cout << "Parametric Constructor called" << std::endl;
+	//std::cout << "Parametric Constructor called" << std::endl;
 
 	return;
 }
 
 AWeapon::AWeapon( AWeapon const & src )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 
 	return;
@@ -39,14 +39,14 @@ AWeapon::AWeapon( AWeapon const & src )
 
 AWeapon::~AWeapon( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 	
 	return;
 }
 
 AWeapon & AWeapon::operator=( AWeapon const & src)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	//std::cout << "Assignation operator called" << std::endl;
 	this->_name = src.getName();
 	this->_apcost = src.getAPCost();
 	this->_damage = src.getDamage();

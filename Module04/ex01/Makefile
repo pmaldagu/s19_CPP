@@ -1,11 +1,16 @@
 NAME = a.out
 
 SRCS = main.cpp \
-	   Fixed.cpp
+	   AWeapon.cpp \
+	   PlasmaRifle.cpp \
+	   PowerFist.cpp \
+	   Character.cpp \
+	   Enemy.cpp \
+	   RadScorpion.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-FLAGS = -g -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 CC = clang++
 

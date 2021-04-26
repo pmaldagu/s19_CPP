@@ -6,27 +6,28 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:01:00 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/23 17:30:26 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/26 13:33:50 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP
-#define AWEAPON_HPP
+#ifndef PLASMARIFLE_HPP
+#define PLASMARIFLE_HPP
 
 # include <iostream>
 # include <string>
+# include "AWeapon.hpp"
 
-class PlasmaRifle
+class PlasmaRifle : public AWeapon 
 {
 	public:
 		PlasmaRifle( void );
 		PlasmaRifle( std::string const & name, int apcost, int damage );
-		PlasmaRifle( Fixed const & src);
+		PlasmaRifle( PlasmaRifle const & src);
 		~PlasmaRifle( void );
 		
 		PlasmaRifle & operator=( PlasmaRifle const & rhs );
 		
-		virtual void attack() const;
+		void attack() const;
 
 };
 

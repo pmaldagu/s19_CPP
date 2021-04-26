@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                    :+:      :+:    :+:   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/23 17:25:44 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/26 18:16:02 by pmaldagu         ###   ########.fr       */
+/*   Created: 2021/04/23 17:00:25 by pmaldagu          #+#    #+#             */
+/*   Updated: 2021/04/26 18:17:02 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "Enemy.hpp"
 
-PowerFist::PowerFist( void ) : AWeapon( "Power Fist", 8, 50 )
+Enemy::Enemy( void )
 {
 }
 
-PowerFist::PowerFist( PowerFist const & src )
+Enemy::Enemy( std::string const & type)
+{
+	this->_type = type;
+
+	return;
+}
+
+Enemy::Enemy( Enemy const & src )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -24,27 +31,38 @@ PowerFist::PowerFist( PowerFist const & src )
 	return;
 }
 
-PowerFist::~PowerFist( void )
+Enemy::~Enemy( void )
 {
 	std::cout << "Destructor called" << std::endl;
 	
 	return;
 }
 
-PowerFist & PowerFist::operator=( PowerFist const & src)
+Enemy & Enemy::operator=( Enemy const & src)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_name = src.getName();
-	this->_apcost = src.getAPCost();
-	this->_damage = src.getDamage();
-	AWeapon::operator=( src );
+	this->_type = src.getType();
+	this->_hp = src.getHP();
 
 	return *this;
 }
 
-void PowerFist::attack( void ) const
+std::string const Enemy::getType( void ) const
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
+	return this->_type;
+}
 
+int Enemy::getHP( void ) const
+{
+	return this->_hp;
+}
+
+void Enemy::takeDamage( int dmg )
+{
+	if (dmg < 0 )
+		return;
+	this->_hp -= dmg;
+	if (this->_hp < 0)
+		this->_hp = 0;
 	return;
 }

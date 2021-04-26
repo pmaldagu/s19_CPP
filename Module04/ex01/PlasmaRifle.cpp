@@ -6,25 +6,14 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:25:44 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/23 17:29:25 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:16:09 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PlasmaRifle.hpp"
 
-PlasmaRifle::PlasmaRifle( void ) : AWeapon()
+PlasmaRifle::PlasmaRifle( void ) : AWeapon( "Plasma Rifle", 5, 21)
 {
-	std::cout << "Default Constructor called" << std::endl;
-
-	return;
-}
-
-PlasmaRifle::AWEapon( std::string const & name, int apcost, int damage) : 
-	AWeapon(name, apcost, damage)
-{
-	std::cout << "Parametric Constructor called" << std::endl;
-
-	return;
 }
 
 PlasmaRifle::PlasmaRifle( PlasmaRifle const & src )

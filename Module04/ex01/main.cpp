@@ -6,24 +6,41 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:41:06 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/19 16:41:59 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:36:07 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "Character.hpp"
+#include "AWeapon.hpp"
+#include "PlasmaRifle.hpp"
+#include "PowerFist.hpp"
+#include "Enemy.hpp"
+#include "RadScorpion.hpp"
 
-int main( void ) 
+int main()
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-
-	c = b;
+	Character* me = new Character("me");
 	
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+	std::cout << *me;
 
+	Enemy* b = new RadScorpion();
+
+	AWeapon* pr = new PlasmaRifle();
+	AWeapon* pf = new PowerFist();
+
+	me->equip(pr);
+	std::cout << *me;
+	me->equip(pf);
+
+	me->attack(b);
+	std::cout << *me;
+	me->equip(pr);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	
 	return 0;
 }

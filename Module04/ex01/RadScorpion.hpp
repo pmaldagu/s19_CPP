@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.hpp                                    :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:01:00 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/26 13:34:07 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:26:25 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POWERFIST_HPP
-#define POWERFIST_HPP
+#ifndef RADSCORPION_HPP
+#define RADSCORPION_HPP
 
 # include <iostream>
 # include <string>
-# include "AWeapon.hpp"
+# include "Enemy.hpp"
 
-class PowerFist : public AWeapon
+class RadScorpion : public Enemy
 {
 	public:
-		PowerFist( void );
-		PowerFist( std::string const & name, int apcost, int damage );
-		PowerFist( PowerFist const & src);
-		~PowerFist( void );
+		RadScorpion( void );
+		RadScorpion( RadScorpion const & src);
+		virtual ~RadScorpion( void );
 		
-		PowerFist & operator=( PowerFist const & rhs );
+		RadScorpion & operator=( RadScorpion const & rhs );
 		
-		void attack() const;
-
 };
 
 #endif

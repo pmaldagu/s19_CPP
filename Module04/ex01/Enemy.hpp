@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.hpp                                    :+:      :+:    :+:   */
+/*   Enemy.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:01:00 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/26 13:34:07 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/26 17:14:13 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POWERFIST_HPP
-#define POWERFIST_HPP
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
 # include <iostream>
 # include <string>
-# include "AWeapon.hpp"
 
-class PowerFist : public AWeapon
+class Enemy
 {
+	protected:
+		std::string _type;
+		int _hp;
+
 	public:
-		PowerFist( void );
-		PowerFist( std::string const & name, int apcost, int damage );
-		PowerFist( PowerFist const & src);
-		~PowerFist( void );
+		Enemy( void );
+		Enemy( std::string const & type);
+		Enemy( Enemy const & src);
+		virtual ~Enemy( void );
 		
-		PowerFist & operator=( PowerFist const & rhs );
+		Enemy & operator=( Enemy const & rhs );
 		
-		void attack() const;
+		std::string const getType() const;
+		int getHP() const;
+		
+		virtual void takeDamage( int );
 
 };
 
