@@ -6,7 +6,8 @@ SRCS = main.cpp \
 	   PowerFist.cpp \
 	   Character.cpp \
 	   Enemy.cpp \
-	   RadScorpion.cpp
+	   RadScorpion.cpp \
+	   SuperMutant.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

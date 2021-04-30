@@ -1,5 +1,0 @@
-#!/bin/bash
-
-docker stop $(grep -c "NAMES")
-docker build . -t lol
-docker run -p 80:80

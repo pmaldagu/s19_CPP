@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:00:25 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/26 18:17:02 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/30 12:18:44 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Enemy::Enemy( Enemy const & src )
 
 Enemy::~Enemy( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 	
 	return;
 }

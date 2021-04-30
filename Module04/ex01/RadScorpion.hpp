@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:01:00 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/26 18:26:25 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/30 12:05:48 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class RadScorpion : public Enemy
 	public:
 		RadScorpion( void );
 		RadScorpion( RadScorpion const & src);
-		virtual ~RadScorpion( void );
+		~RadScorpion( void );
 		
 		RadScorpion & operator=( RadScorpion const & rhs );
 		

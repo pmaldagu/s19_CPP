@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                          :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:00:25 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/26 18:38:44 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/04/30 12:17:00 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,10 @@ void Character::attack( Enemy* enemy )
 			<< this->_equip->getName() << std::endl;
 		this->_equip->attack();
 		this->_ap -= this->_equip->getAPCost();
-		//enemy.
+		enemy->takeDamage( this->_equip->getDamage());
 	}
-	
+	if ( enemy->getHP() == 0 )
+		delete enemy;
 
 	return;
 }
