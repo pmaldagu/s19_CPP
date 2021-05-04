@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/30 15:24:37 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:38:50 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int Squad::getCount( void ) const
 	int count;
 	Squad* cpy;
 
-	cpy = this;
+	*cpy = *this;
 	count = 0;
 	while ( cpy )
 	{
@@ -77,7 +77,7 @@ ISpaceMarine* Squad::getUnit( int n ) const
 	Squad *cpy;
 
 	i = 1;
-	cpy = this;
+	*cpy = *this;
 	while (cpy && cpy->_nextUnit && i < n)
 	{
 		cpy = cpy->_nextUnit;
@@ -97,7 +97,7 @@ int Squad::push( ISpaceMarine* newUnit)
 	Squad *cpy;
 
 	i = 0;
-	cpy = this;
+	cpy = this->_nextUnit;
 	while (cpy && cpy->_nextUnit)
 	{
 		cpy = cpy->_nextUnit;
@@ -107,7 +107,7 @@ int Squad::push( ISpaceMarine* newUnit)
 		this->_unit = newUnit;
 	else
 	{
-		cpy->_nextUnit = new Squad;
+		cpy->_nextUnit = new Squad();
 		cpy->_nextUnit->_unit = newUnit;
 		cpy->_nextUnit->_nextUnit = nullptr;
 	}

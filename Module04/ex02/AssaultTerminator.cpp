@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/30 16:07:16 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:32:27 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ AssaultTerminator & AssaultTerminator::operator=(AssaultTerminator const & src)
 	return *this;
 }
 
-void AssaultTerminator::battlecry( void ) const
+void AssaultTerminator::battleCry( void ) const
 {
 	std::cout << "This code is unclean. PURIFY IT!" << std::endl;
 

@@ -6,7 +6,7 @@
 /*   By: pmaldag <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 12:38:56 by pmaldag           #+#    #+#             */
-/*   Updated: 2021/04/30 15:44:04 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:39:47 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <iostream>
 # include <string>
 # include "ISquad.hpp"
-# include "ISpaceMarine.hpp"
 
 class Squad : public ISquad
 {

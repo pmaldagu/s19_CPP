@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/30 16:02:42 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:31:49 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ TacticalMarine & TacticalMarine::operator=(TacticalMarine const & src)
 	return *this;
 }
 
-void TacticalMarine::battlecry( void ) const
+void TacticalMarine::battleCry( void ) const
 {
 	std::cout << "For the holy PLOT!" << std::endl;
 
