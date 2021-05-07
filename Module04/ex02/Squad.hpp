@@ -6,7 +6,7 @@
 /*   By: pmaldag <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 12:38:56 by pmaldag           #+#    #+#             */
-/*   Updated: 2021/04/30 16:39:47 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/05/07 14:31:39 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ class Squad : public ISquad
 
 		int getCount( void ) const;
 		ISpaceMarine *getUnit( int ) const;
+		ISpaceMarine **getAllSquad( void ) const;
 		int push(ISpaceMarine*);
 			
 	private:
-		ISpaceMarine* _unit;
-		Squad* _nextUnit;
-		
-
+		ISpaceMarine** _unit;
+		int _members;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/30 16:32:27 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:49:15 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,7 @@ void AssaultTerminator::meleeAttack( void ) const
 	return;
 }
 
+ISpaceMarine* AssaultTerminator::clone( void ) const
+{
+	return new AssaultTerminator;
+}

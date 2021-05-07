@@ -1,6 +1,10 @@
 NAME = a.out
 
-SRCS = main.cpp 
+SRCS = main.cpp \
+	   AssaultTerminator.cpp \
+	   Squad.cpp \
+	   TacticalMarine.cpp
+		
 
 OBJS = ${SRCS:.cpp=.o}
 

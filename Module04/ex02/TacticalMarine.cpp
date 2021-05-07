@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/30 16:31:49 by pmaldag          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:47:27 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,7 @@ void TacticalMarine::meleeAttack( void ) const
 	return;
 }
 
+ISpaceMarine* TacticalMarine::clone( void ) const
+{
+	return new TacticalMarine;
+}

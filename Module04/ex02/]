@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/05/07 14:31:50 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/05/07 14:09:25 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Squad::Squad( void ) 
 {
 	this->_unit = nullptr;
-	this->_members = 0;
+	this->_member = 0;
 
 	return;
 }
@@ -29,14 +29,6 @@ Squad::Squad( Squad const & src )
 
 Squad::~Squad( void )
 {
-	int i;
-
-	i = 0;
-	while (i < this->_members)
-	{
-		delete _unit[i];
-		i++;
-	}
 	delete [] _unit;
 
 	return;
@@ -44,48 +36,78 @@ Squad::~Squad( void )
 
 Squad & Squad::operator=(Squad const & src)
 {
-	this->_members = src.getCount();
-	this->_unit = src.getAllSquad();
+	//std::cout << "Assignation operator called" << std::endl;
+	//this->_n = src.getRawBits();
 
 	return *this;
 }
 
 int Squad::getCount( void ) const
 {
-	return this->_members;
+	int count;
+	Squad* cpy;
+
+	*cpy = *this;
+	count = 0;
+	while ( cpy )
+	{
+		cpy = cpy->_nextUnit;
+		count++;
+	}
+	return ( count );
 }
 
-ISpaceMarine** Squad::getAllSquad( void ) const
-{
-	return this->_unit;
-}
-	
 ISpaceMarine* Squad::getUnit( int n ) const
 {
-	if ( n > this->_members || n < 0 )
+	int i;
+	Squad *cpy;
+
+	i = 0;
+	*cpy = *this;
+	std::cout << "HAH\n";
+	while (cpy->_nextUnit && i < n)
+	{
+		std::cout << "CRU\n";
+		cpy = cpy->_nextUnit;
+		i++;
+	}
+	if ( i != n )
 	{
 		std::cout << "This Unit doesn't exits" << std::endl;
 		return nullptr;
 	}
-	return this->_unit[n];
+	std::cout << "8\n";
+	return cpy->_unit;
 }
+
+void Squad::setUnit( ISpaceMarine* newUnit )
+{
+	this->_unit = newUnit;
+
+	return;
+}
+
+void Squad::setNextUnit( void )
+{
+	this->_nextUnit = new Squad;
+
+	return;
+}
+
 
 int Squad::push( ISpaceMarine* newUnit)
 {
 	int i;
-	ISpaceMarine** tmp;
+	Squad *cpy;
 
 	i = 0;
-	tmp = new ISpaceMarine* [this->_members + 1];
-	while (i < this->_members)
+	*cpy = *this;
+	while (cpy && cpy->_unit)
 	{
-		tmp[i] = this->_unit[i];
+		cpy = cpy->_nextUnit;
 		i++;
 	}
-	tmp[i] = newUnit;
-	delete [] this->_unit;
-	this->_unit = tmp;
-	this->_members += 1;
-
-	return this->_members;
+	cpy->setNextUnit();
+	cpy->setUnit(newUnit);
+	return ( i + 1 );
 }
