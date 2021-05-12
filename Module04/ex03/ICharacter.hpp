@@ -6,9 +6,15 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:50:46 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/05/07 14:54:23 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/05/12 17:11:32 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
+
+# include "AMateria.hpp"
+class AMateria;
 
 class ICharacter
 {
@@ -19,3 +25,5 @@ class ICharacter
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
 };
+
+#endif

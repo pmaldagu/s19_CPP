@@ -6,9 +6,15 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:56:07 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/05/07 15:23:24 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/05/12 17:11:40 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
+
+# include "ICharacter.hpp"
+class ICharacter;
 
 class AMateria
 {
@@ -25,5 +31,7 @@ class AMateria
 		unsigned int getXP() const; //Returns the Materia's XP
 
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void use( ICharacter & target);
 };
+
+#endif

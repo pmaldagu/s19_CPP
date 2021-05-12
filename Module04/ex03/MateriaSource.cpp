@@ -1,64 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/04/19 17:47:31 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/05/12 18:20:02 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "MateriaSource.hpp"
 
-Fixed::Fixed( void ) : _n( 0 )
+MateriaSource::MateriaSource( void )
 {
-	std::cout << "Default Constructor called" << std::endl;
+	int i;
+
+	i = 0;
+	while (I < 4)
+	{
+		this->_source[i] = nullptr;
+		i++;
+	}
 
 	return;
 }
 
-Fixed::Fixed( int const n ) : _n( n )
+MateriaSource::MateriaSource( MateriaSource const & src )
 {
-	std::cout << "Parametric Constructor called" << std::endl;
-
-	return;
-}
-
-Fixed::Fixed( Fixed const & src )
-{
-	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 
 	return;
 }
 
-Fixed::~Fixed( void )
+MateriaSource::~MateriaSource( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	int i;
+
+	i = 0;
+	while (i < 4)
+	{
+		delete this->_source[i];
+		i++;
+	}
 	
 	return;
 }
 
-Fixed & Fixed::operator=(Fixed const & src)
+MateriaSource & MateriaSource::operator=(MateriaSource const & src)
 {
-	std::cout << "Assignation operator called" << std::endl;
-	this->_n = src.getRawBits();
-
+	///
 	return *this;
 }
 
-int Fixed::getRawBits( void ) const
+void MateriaSource::learnMateria( AMateria* m )
 {
-	std::cout << "getRawBits member function called" << std::endl;
-
-	return this->_n;
-}
-
-void Fixed::setRawBits( int const raw )
-{
-	this->_n = raw;
-
-	return;
-}
+	
+	
