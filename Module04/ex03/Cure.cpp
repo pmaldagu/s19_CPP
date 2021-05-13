@@ -1,50 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:45:08 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/05/13 11:30:57 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/05/13 11:34:12 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
-AMateria::AMateria( std::string const & type )
+Cure::Cure( void ) : AMateria( "cure" )
 {
-	this->_type = type;
-
-	return;
+	this->_xp = 0;
 }
 
-AMateria::AMateria( AMateria const & src )
+Cure::Cure( Cure const & src ) : AMateria( "cure" )
 {
-	this->_type = src.getType();
 	this->_xp = src.getXP();
 
 	return;
 }
 
-AMateria::~AMateria( void )
+Cure::~Cure( void )
 {
-	return;
-}
-
-std::string const & AMateria::getType( void ) const
-{
-	return this->_type;
-}
-
-unsigned int AMateria::getXP( void ) const
-{
-	return this->_xp;
-}
-
-void AMateria::use(ICharacter& target)
-{
-	this->_xp += 10;
 	
 	return;
 }
+
+Cure & Cure::operator=(Cure const & src)
+{
+	this->_xp = src.getXP();
+
+	return *this;
+}
+
+AMateria* Cure::clone( void ) const
+{
+	Cure *clone;
+	
+	clone  = new Cure(*this);
+	
+	return ( clone );
+}
+
+void Cure::use( ICharacter & target )
+{
+	AMateria::use( target );
+
+	std::cout << "* heals " << target.getName() << "'s wounds" << std::endl;
+
+	return;
+}
+

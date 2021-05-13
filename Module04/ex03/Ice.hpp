@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:42:47 by pmaldagu          #+#    #+#             */
-/*   Updated: 2021/05/07 15:28:05 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2021/05/13 11:30:06 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Ice : public AMateria
 		Ice & operator=( Ice const & rhs );
 		
 		AMateria* clone( void ) const;
-		void use( int const raw );
+		void use( ICharacter & target );
 };
 
 #endif
